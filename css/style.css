@@ -5,22 +5,72 @@
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: "Dosis", sans-serif;
+}
+
+.carrito {
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+  background-color: #eceff1;
+  position: fixed;
+  z-index: 500;
+  bottom: 3rem;
+  right: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 0.3s;
+}
+@media only screen and (min-width: 768px) {
+  .carrito {
+    bottom: 4rem;
+    right: 4rem;
+  }
+}
+.carrito:hover {
+  background-color: #bdbdbd;
+  transition: background-color 0.3s;
+  cursor: pointer;
+}
+.carrito i {
+  font-size: 2rem;
+}
+.carrito__cantidad {
+  width: 1.5rem;
+  height: 1.5rem;
+  margin-bottom: 3.3rem;
+  margin-left: 3.3rem;
+  border-radius: 50%;
+  position: fixed;
+  background-color: #757575;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #eceff1;
 }
 
 .navBar {
   width: 100%;
   height: 100px;
+  position: fixed;
+  z-index: 800;
+  top: 0;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
   background-color: #eceff1;
+  box-shadow: 0 1rem 0.5rem -1rem #757575;
 }
 @media only screen and (min-width: 768px) {
   .navBar {
-    height: 180px;
+    height: 170px;
     flex-direction: column;
     justify-content: center;
   }
@@ -32,7 +82,7 @@ body {
 @media only screen and (min-width: 768px) {
   .navBar__logo {
     margin: 0;
-    width: 7rem;
+    width: 6.5rem;
   }
 }
 @media only screen and (min-width: 768px) {
@@ -43,10 +93,10 @@ body {
 .navBar__menu {
   width: 100%;
   height: calc(100vh - 100px);
-  opacity: 0;
+  visibility: hidden;
   bottom: 0;
   background-color: #eceff1;
-  transition: opacity 0.4s;
+  transition: visibility 0.4s;
   position: fixed;
   display: flex;
   flex-direction: column;
@@ -56,21 +106,26 @@ body {
 }
 @media only screen and (min-width: 768px) {
   .navBar__menu {
-    opacity: 1;
+    visibility: visible;
     position: relative;
     flex-direction: row;
     width: 70%;
     height: auto;
-    margin-top: 1rem;
+    margin-top: 0.8rem;
   }
 }
-.navBar__menu hr {
-  color: #000000;
+.navBar__menu .icon {
+  font-size: 1.5rem;
 }
 .navBar__menu a {
-  font-size: 1.3rem;
+  font-size: 1.8rem;
   text-decoration: none;
   color: #000000;
+}
+@media only screen and (min-width: 768px) {
+  .navBar__menu a {
+    font-size: 1.5rem;
+  }
 }
 .navBar__menu .hover-effect {
   display: inline-block;
@@ -92,8 +147,275 @@ body {
   width: 100%;
 }
 .navBar__menu.is-active {
+  visibility: visible;
+  transition: visibility 0.4s;
+}
+
+.banner {
+  margin-top: 100px;
+  width: 100%;
+  height: calc(100vh - 100px);
+  background-image: url(../assets/header-bg-mobile.jpg);
+  background-size: cover;
+  background-position: right;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+@media only screen and (min-width: 768px) {
+  .banner {
+    background-image: url(../assets/header-bg.jpg);
+    background-position: right top;
+    justify-content: left;
+    align-items: center;
+    padding-left: 8rem;
+  }
+}
+.banner__info {
+  border: 3px solid #eceff1;
+  width: 80%;
+  height: 12rem;
+  margin-top: 4rem;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+@media only screen and (min-width: 768px) {
+  .banner__info {
+    width: 30%;
+  }
+}
+.banner__info h1 {
+  color: #eceff1;
+  font-weight: 400;
+  text-align: center;
+  font-size: 2.5rem;
+  width: 80%;
+  border-bottom: 1px solid #eceff1;
+}
+.banner__info p {
+  color: #eceff1;
+  margin-top: 3rem;
+  font-weight: 300;
+  font-size: 1.2rem;
+}
+
+.coleccion {
+  width: 100%;
+  padding: 3rem;
+  background-color: #eceff1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.coleccion__title {
+  width: 100%;
+  height: 4rem;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+.coleccion__title h2 {
+  align-self: center;
+  margin: 0 2rem;
+}
+.coleccion__title div {
+  width: 35%;
+  height: 50%;
+  border-top: 0.5px solid #757575;
+}
+.coleccion__search {
+  width: 100%;
+}
+.coleccion__search form {
+  display: flex;
+  justify-content: center;
+}
+.coleccion__search input {
+  width: 85%;
+  height: 2rem;
+  padding: 0 1rem;
+  border: none;
+  border-radius: 2rem;
+  background-color: #bdbdbd;
+}
+@media only screen and (min-width: 768px) {
+  .coleccion__search input {
+    width: 40%;
+  }
+}
+.coleccion__search input::placeholder {
+  color: #000000;
+  font-family: "Dosis", sans-serif;
+  font-weight: 500;
+  font-size: 1rem;
+}
+.coleccion__search button {
+  height: 2rem;
+  width: 2rem;
+  margin-left: 0.5rem;
+  border: none;
+  border-radius: 50%;
+  background-color: #bdbdbd;
+}
+.coleccion__search button:hover {
+  background-color: #757575;
+  cursor: pointer;
+}
+.coleccion__search button i {
+  color: #000000;
+}
+.coleccion__search .filter {
+  width: 100%;
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+}
+.coleccion__search .filter select {
+  height: 1.8rem;
+  width: 10rem;
+  background-color: #bdbdbd;
+  border: none;
+  border-radius: 2rem;
+}
+.coleccion__search .filter option {
+  text-align: center;
+}
+.coleccion__search .error {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 3rem;
+  width: 100%;
+  margin-top: 2rem;
+  padding: 1rem;
+  margin: 1rem;
+  text-align: center;
+  color: #963c3c;
+  border: 2px solid #963c3c;
+  border-radius: 1rem;
+  visibility: hidden;
+}
+@media only screen and (min-width: 768px) {
+  .coleccion__search .error {
+    width: 50%;
+    margin: 2rem auto;
+  }
+}
+.coleccion__cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.coleccion__cards .container {
+  width: 20rem;
+  height: 25rem;
+  margin: 1rem;
+  position: relative;
+  z-index: 100;
+  cursor: pointer;
+  -webkit-box-shadow: 0 0 5px #000;
+  box-shadow: 0 0 5px #000;
+}
+.coleccion__cards .overlay {
+  width: 100%;
+  height: 100%;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  background: rgba(77, 77, 77, 0.9);
+  color: #eceff1;
+  opacity: 0;
+  transition: all 0.5s;
+}
+.coleccion__cards .items {
+  padding-left: 20px;
+  letter-spacing: 3px;
+}
+.coleccion__cards .head {
+  font-size: 1.8rem;
+  line-height: 40px;
+  transform: translateY(40px);
+  transition: all 0.7s;
+}
+.coleccion__cards .head .subtitle {
+  font-size: 1rem;
+}
+.coleccion__cards .price {
+  font-size: 22px;
+  line-height: 10px;
+  font-weight: bold;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.7s;
+}
+.coleccion__cards .cart {
+  font-size: 12px;
+  opacity: 0;
+  letter-spacing: 1px;
+  display: flex;
+  align-items: center;
+  transform: translateY(40px);
+  transition: all 0.7s;
+}
+.coleccion__cards .cart i {
+  font-size: 2rem;
+}
+.coleccion__cards .cart button {
+  margin-left: 10px;
+  background: transparent;
+  color: #eceff1;
+  padding: 0.5rem 1rem;
+  border: 2px solid transparent;
+  transition: all 0.5s;
+}
+.coleccion__cards .cart button:hover {
+  border: 2px solid #eceff1;
+  transition: border 0.5s;
+  cursor: pointer;
+}
+.coleccion__cards .cart button:active {
+  background-color: #bdbdbd;
+  transition: background-color 0.5s;
+}
+.coleccion__cards .container:hover .overlay {
   opacity: 1;
-  transition: opacity 0.4s;
+}
+.coleccion__cards .container:hover .overlay .head {
+  transform: translateY(0px);
+}
+.coleccion__cards .container:hover .overlay hr {
+  width: 75px;
+  transition-delay: 0.4s;
+}
+.coleccion__cards .container:hover .overlay .price {
+  transform: translateY(0px);
+  transition-delay: 0.3s;
+  opacity: 1;
+}
+.coleccion__cards .container:hover .overlay .cart {
+  transform: translateY(0px);
+  transition-delay: 0.6s;
+  opacity: 1;
+}
+.coleccion #mostrarTodo {
+  padding: 0.8rem 1.8rem;
+  margin-top: 2rem;
+  background-color: #bdbdbd;
+  color: #000000;
+  border: none;
+  border-radius: 2rem;
+  font-family: "Dosis", sans-serif;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: background-color 0.4s;
+}
+.coleccion #mostrarTodo:hover {
+  background-color: #757575;
+  transition: background-color 0.4s;
 }
 
 /*# sourceMappingURL=style.css.map */

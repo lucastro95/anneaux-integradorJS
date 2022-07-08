@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -14,27 +15,67 @@
     <link href="https://cdn.lineicons.com/3.0/lineicons.css" rel="stylesheet">
     <title>- Anneaux -</title>
 </head>
+
 <body>
-    <nav class="navBar">
+    <div class="carrito">
+        <i class="lni lni-shopping-basket"></i>
+        <!-- <div class="carrito__cantidad"></div> -->
+    </div>
+
+    <nav class="navBar" id="nav">
         <div>
             <a href="./principal.html"><img class="navBar__logo" src="./assets/logo.png" alt="Logo Anneaux"></a>
         </div>
         <button class="navBar__btn hamburger hamburger--vortex" type="button">
             <span class="hamburger-box">
-              <span class="hamburger-inner"></span>
+                <span class="hamburger-inner"></span>
             </span>
         </button>
         <ul class="navBar__menu">
             <li><a class="hover-effect active" href="#">Home</a></li>
-            <i class="lni lni-diamond-alt"></i>
-            <li><a class="hover-effect" href="#">Colección</a></li>
-            <i class="lni lni-diamond-alt"></i>
+            <i class="icon lni lni-diamond-alt"></i>
+            <li><a class="hover-effect" href="#coleccion">Colección</a></li>
+            <i class="icon lni lni-diamond-alt"></i>
             <li><a class="hover-effect" href="#">Nosotros</a></li>
-            <i class="lni lni-diamond-alt"></i>
-            <li><a class="hover-effect" href="#">Contacto</a></li>
+            <i class="icon lni lni-diamond-alt"></i>
+            <li><a class="hover-effect" href="#">Iniciar Sesión</a></li>
         </ul>
     </nav>
 
+    <header class="banner">
+        <div class="banner__info">
+            <h1>Anneaux</h1>
+            <p>Joyería de diseño</p>
+        </div>
+    </header>
+
+    <section class="coleccion" id="coleccion">
+        <div class="coleccion__title">
+            <div></div>
+            <h2>Colección</h2>
+            <div></div>
+        </div>
+        <div class="coleccion__search">
+            <form id="form">
+                <input type="text" placeholder="Buscar por nombre..." id="search">
+                <button type="submit"><i class="lni lni-search-alt"></i></button>
+            </form>
+            <div class="filter">
+                <select id="metal-filter">
+                    <option value="">-- Metal --</option>
+                    <option value="oro-amarillo">Oro Amarillo</option>
+                    <option value="oro-blanco">Oro Blanco</option>
+                    <option value="oro-rose">Oro Rosè</option>
+                    <option value="platino">Platino</option>
+                </select>
+            </div>
+            <div class="error"></div>
+        </div>
+        <div class="coleccion__cards"></div>
+        <button id="mostrarTodo">Mostrar todos los productos</button>
+    </section>
+
     <script src="./js/app.js" type="module"></script>
 </body>
+
 </html>
