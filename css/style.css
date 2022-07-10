@@ -59,7 +59,7 @@ body {
   width: 100%;
   height: 100px;
   position: fixed;
-  z-index: 800;
+  z-index: 1000;
   top: 0;
   display: flex;
   flex-direction: row;
@@ -93,11 +93,12 @@ body {
 .navBar__menu {
   width: 100%;
   height: calc(100vh - 100px);
-  visibility: hidden;
   bottom: 0;
+  transition: transform 0.3s ease;
+  transform: translate(100%, 0%);
   background-color: #eceff1;
-  transition: visibility 0.4s;
   position: fixed;
+  z-index: 700;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
@@ -106,7 +107,7 @@ body {
 }
 @media only screen and (min-width: 768px) {
   .navBar__menu {
-    visibility: visible;
+    transform: translate(0, 0);
     position: relative;
     flex-direction: row;
     width: 70%;
@@ -147,8 +148,7 @@ body {
   width: 100%;
 }
 .navBar__menu.is-active {
-  visibility: visible;
-  transition: visibility 0.4s;
+  transform: translate(0, 0);
 }
 
 .banner {
@@ -204,7 +204,7 @@ body {
 
 .coleccion {
   width: 100%;
-  padding: 3rem;
+  padding: 2rem;
   background-color: #eceff1;
   display: flex;
   flex-direction: column;
@@ -271,14 +271,27 @@ body {
   width: 100%;
   margin-top: 1rem;
   display: flex;
+  flex-direction: column;
+  align-items: center;
   justify-content: center;
+}
+@media only screen and (min-width: 768px) {
+  .coleccion__search .filter {
+    flex-direction: row;
+  }
 }
 .coleccion__search .filter select {
   height: 1.8rem;
   width: 10rem;
+  margin: 1rem;
   background-color: #bdbdbd;
   border: none;
   border-radius: 2rem;
+}
+@media only screen and (min-width: 768px) {
+  .coleccion__search .filter select {
+    margin: 0 1rem;
+  }
 }
 .coleccion__search .filter option {
   text-align: center;
@@ -308,11 +321,23 @@ body {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  padding: 0;
+}
+.coleccion__cards__card {
+  margin: 1rem 0;
+  width: 90%;
+  max-width: 25rem;
+  min-width: 18rem;
+}
+@media only screen and (min-width: 768px) {
+  .coleccion__cards__card {
+    width: 25%;
+    margin: 1rem;
+  }
 }
 .coleccion__cards .container {
-  width: 20rem;
+  width: 100%;
   height: 25rem;
-  margin: 1rem;
   position: relative;
   z-index: 100;
   cursor: pointer;
