@@ -13,35 +13,121 @@ body {
   font-family: "Dosis", sans-serif;
 }
 
-.carrito {
+.compras {
+  display: flex;
+}
+.compras__tabla {
+  position: fixed;
+  z-index: 300;
+  right: 3rem;
+  bottom: 5.5rem;
+  background-color: #ffffff;
+  box-shadow: -1rem 1rem 0.5rem -1rem #757575;
+  border-radius: 1rem;
+  width: 80%;
+  padding: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.4s;
+}
+.compras__tabla:hover {
+  opacity: 1;
+  visibility: visible;
+}
+@media only screen and (min-width: 768px) {
+  .compras__tabla {
+    width: 35%;
+    right: 5rem;
+    bottom: 3rem;
+  }
+}
+.compras__tabla table {
+  width: 100%;
+  border-spacing: 0;
+}
+.compras__tabla table th {
+  width: 25%;
+  border-bottom: 2px solid #bdbdbd;
+  padding: 0.5rem 0;
+  text-align: center;
+}
+.compras__tabla table td {
+  text-align: center;
+}
+.compras__tabla table button {
+  width: 1.5rem;
+  height: 1.5rem;
+  background-color: #bdbdbd;
+  padding: 0.3rem;
+  border-radius: 50%;
+  font-size: 0.8rem;
+  color: #000000;
+  margin: 0 0.5rem;
+  cursor: pointer;
+}
+.compras__tabla table img {
+  width: 100%;
+}
+@media only screen and (min-width: 768px) {
+  .compras__tabla table img {
+    width: 50%;
+  }
+}
+.compras__tabla .total {
+  margin-top: 1rem;
+  font-size: 1.2rem;
+}
+.compras__tabla .total span {
+  font-weight: 600;
+}
+.compras__tabla button {
+  width: 80%;
+  height: 2rem;
+  margin-top: 1rem;
+  border: none;
+  background-color: #bdbdbd;
+  font-size: 0.8rem;
+  transition: background-color 0.4s;
+}
+.compras__tabla button:hover {
+  background-color: #757575;
+}
+.compras__carrito {
+  position: fixed;
+  z-index: 700;
+  bottom: 2rem;
+  right: 2rem;
   width: 4rem;
   height: 4rem;
   border-radius: 50%;
   background-color: #eceff1;
-  position: fixed;
-  z-index: 500;
-  bottom: 3rem;
-  right: 3rem;
   display: flex;
   justify-content: center;
   align-items: center;
   transition: background-color 0.3s;
 }
 @media only screen and (min-width: 768px) {
-  .carrito {
-    bottom: 4rem;
-    right: 4rem;
+  .compras__carrito {
+    bottom: 2.5rem;
+    right: 2.5rem;
   }
 }
-.carrito:hover {
+.compras__carrito:hover {
   background-color: #bdbdbd;
   transition: background-color 0.3s;
   cursor: pointer;
 }
-.carrito i {
+.compras__carrito:hover ~ .compras__tabla {
+  opacity: 1;
+  visibility: visible;
+}
+.compras__carrito i {
   font-size: 2rem;
 }
-.carrito__cantidad {
+.compras__carrito__cantidad {
   width: 1.5rem;
   height: 1.5rem;
   margin-bottom: 3.3rem;

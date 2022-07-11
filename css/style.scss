@@ -24,47 +24,145 @@ body {
     font-family: 'Dosis', sans-serif;
 }
 
-.carrito {
-    width: 4rem;
-    height: 4rem;
-    border-radius: 50%;
-    background-color: $gray;
-    position: fixed;
-    z-index: 500;
-    bottom: 3rem;
-    right: 3rem;
+.compras {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: background-color .3s;
 
-    @media #{$desktop} {
-        bottom: 4rem;
-        right: 4rem;
-    }
-
-    &:hover {
-        background-color: $gray-medium;
-        transition: background-color .3s;
-        cursor: pointer;
-    }
-
-    i {
-        font-size: 2rem;
-    }
-
-    &__cantidad {
-        width: 1.5rem;
-        height: 1.5rem;
-        margin-bottom: 3.3rem;
-        margin-left: 3.3rem;
-        border-radius: 50%;
+    &__tabla {
         position: fixed;
-        background-color: $gray-dark;
+        z-index: 300;
+        right: 3rem;
+        bottom: 5.5rem;
+        background-color: $white;
+        box-shadow: -1rem 1rem .5rem -1rem $gray-dark;
+        border-radius: 1rem;
+        width: 80%;
+        padding: .5rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        opacity: 0;
+        visibility: hidden;
+        transition: all .4s;
+
+        &:hover {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        @media #{$desktop} {
+            width: 35%;
+            right: 5rem;
+            bottom: 3rem;
+        }
+
+        table {
+            width: 100%;
+            border-spacing: 0;
+            
+            th {
+                width: 25%;
+                border-bottom: 2px solid $gray-medium;
+                padding: .5rem 0;
+                text-align: center;
+            }
+
+            td {
+                text-align: center;
+            }
+            
+            button {
+                width: 1.5rem;
+                height: 1.5rem;
+                background-color: $gray-medium;
+                padding: .3rem;
+                border-radius: 50%;
+                font-size: .8rem;
+                color: $black;
+                margin: 0 .5rem;
+                cursor: pointer;
+            }
+
+            img {
+                width: 100%;
+                
+                @media #{$desktop} {
+                    width: 50%;
+                }
+            }
+        }
+
+        .total {
+            margin-top: 1rem;
+            span {
+                font-weight: 600;
+            }
+            font-size: 1.2rem;
+        }
+
+        button {
+            width: 80%;
+            height: 2rem;
+            margin-top: 1rem;
+            border: none;
+            background-color: $gray-medium;
+            font-size: .8rem;
+            transition: background-color .4s;
+
+            &:hover {
+                background-color: $gray-dark;
+            }
+        }
+
+    }
+
+    &__carrito {
+        position: fixed;
+        z-index: 700;
+        bottom: 2rem;
+        right: 2rem;
+        width: 4rem;
+        height: 4rem;
+        border-radius: 50%;
+        background-color: $gray;
         display: flex;
         justify-content: center;
         align-items: center;
-        color: $gray;
+        transition: background-color .3s;
+    
+        @media #{$desktop} {
+            bottom: 2.5rem;
+            right: 2.5rem;
+        }
+    
+        &:hover {
+            background-color: $gray-medium;
+            transition: background-color .3s;
+            cursor: pointer;
+        }
+
+        &:hover ~ .compras__tabla {
+            opacity: 1;
+            visibility: visible;
+        }
+    
+        i {
+            font-size: 2rem;
+        }
+    
+        &__cantidad {
+            width: 1.5rem;
+            height: 1.5rem;
+            margin-bottom: 3.3rem;
+            margin-left: 3.3rem;
+            border-radius: 50%;
+            position: fixed;
+            background-color: $gray-dark;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: $gray;
+        }
+    
     }
 }
 

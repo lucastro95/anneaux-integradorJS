@@ -1,3 +1,4 @@
+import { agregarCurso, eliminarTodos } from "./agregarCurso.js"
 import { busqueda } from "./busqueda.js"
 import { cargarProductos } from "./cargarProductos.js"
 import { rings } from "./db.js"
@@ -36,3 +37,6 @@ v.selectMax.addEventListener('change',(e) => {
     filtrar()
 })
 
+v.listaProductos.addEventListener('click', agregarCurso)
+
+v.eliminarTodos.addEventListener('click', eliminarTodos)

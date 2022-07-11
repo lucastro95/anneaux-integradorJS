@@ -3,10 +3,11 @@ import * as v from './variables.js'
 export function cargarProductos(rings) {
     limpiarHTML()
     rings.map(ring => {
-        const {name, metal, price, url} = ring
+        const {name, metal, price, url, id} = ring
 
         const card = document.createElement('div')
         card.classList.add('coleccion__cards__card')
+        card.setAttribute('data-id', id)
 
         const container = document.createElement('div')
         container.classList.add('container')
@@ -16,7 +17,7 @@ export function cargarProductos(rings) {
         `
         <div class="overlay">
             <div class="items head">
-                <p>${name}</p>
+                <p class='title'>${name}</p>
                 <p class="subtitle">${metal}</p>
             </div>
             <div class="items price">
@@ -24,7 +25,7 @@ export function cargarProductos(rings) {
             </div>
             <div class="items cart">
                 <i class="lni lni-cart-full"></i>
-                <button>ADD TO CART</button>
+                <button class='agregar-producto'>ADD TO CART</button>
             </div>
         </div>
         `

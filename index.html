@@ -17,9 +17,33 @@
 </head>
 
 <body>
-    <div class="carrito">
-        <i class="lni lni-shopping-basket"></i>
-        <!-- <div class="carrito__cantidad"></div> -->
+    <div class="compras">
+        <div class="compras__carrito">
+            <i class="lni lni-shopping-basket"></i>
+            <!-- <div class="compras__carrito__cantidad"></div> -->
+        </div>
+        <div class="compras__tabla">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Imagen</th>
+                        <th>Nombre</th>
+                        <th>Precio</th>
+                        <th>Cantidad</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- <tr>
+                        <td><img src="./assets/alicia.jpeg" alt=""></td>
+                        <td>Alicia</td>
+                        <td>$500</td>
+                        <td><button class="min"><i class="lni lni-minus"></i></button></i>3<button class="max"><i class="lni lni-plus"></i></button></td>
+                    </tr> -->
+                </tbody>
+            </table>
+            <div class="total"><span></span>No hay productos en el carrito</div>
+            <button id="eliminarTodos">Eliminar todos los productos</button>
+        </div>
     </div>
 
     <nav class="navBar" id="nav">
