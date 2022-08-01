@@ -1,4 +1,4 @@
-import { agregarCurso, eliminarTodos } from "./agregarCurso.js"
+import { agregarProducto, eliminarProducto, eliminarTodos, leerLocalStorage } from "./agregarProducto.js"
 import { busqueda } from "./busqueda.js"
 import { cargarProductos } from "./cargarProductos.js"
 import { rings } from "./db.js"
@@ -9,6 +9,7 @@ import * as v from "./variables.js"
 addEventListener('DOMContentLoaded', () => {
     menuHamburguesa()
     cargarProductos(rings)
+    leerLocalStorage()
 })
 
 // Obj de búsqueda
@@ -37,6 +38,8 @@ v.selectMax.addEventListener('change',(e) => {
     filtrar()
 })
 
-v.listaProductos.addEventListener('click', agregarCurso)
+v.listaProductos.addEventListener('click', agregarProducto)
 
 v.eliminarTodos.addEventListener('click', eliminarTodos)
+
+v.carrito.addEventListener('click', (e) => eliminarProducto(e))

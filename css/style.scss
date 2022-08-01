@@ -6,6 +6,7 @@ $gray: #eceff1;
 $gray-medium: #bdbdbd;
 $gray-dark: #757575;
 $white: #ffffff;
+$transparent-white: #ffffff9f;
 $error: #963c3c;
 
 $desktop: "only screen and (min-width: 768px)";
@@ -71,8 +72,8 @@ body {
             }
             
             button {
-                width: 1.5rem;
-                height: 1.5rem;
+                width: 3rem;
+                height: 3rem;
                 background-color: $gray-medium;
                 padding: .3rem;
                 border-radius: 50%;
@@ -80,6 +81,10 @@ body {
                 color: $black;
                 margin: 0 .5rem;
                 cursor: pointer;
+
+                i {
+                    font-size: 1.3rem;
+                }
             }
 
             img {
@@ -595,6 +600,188 @@ body {
         &:hover {
             background-color: $gray-dark;
             transition: background-color .4s;
+        }
+    }
+}
+
+.nosotros {
+    width: 100%;
+    padding-top: 2rem;
+    background-color: $gray-medium;
+
+    &__title{
+        width: 100%;
+        height: 4rem;
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+
+
+        h2 {
+            align-self: center;
+            margin: 0 2rem;
+        }
+
+        div {
+            width: 25%;
+            height: 50%;
+            border-top: 0.5px solid $gray-dark;
+        }
+        
+    }
+
+    &__info {
+
+        &__empresa {
+            width: 100%;
+            height: 50vh;
+            background-image: url('../assets/nosotros-bg.jpg');
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            @media #{$desktop} {
+                justify-content: flex-end;
+                padding: 0 8rem;
+                height: 60vh;
+                background-position: center;
+            }
+
+            &__container {
+                width: 80%;
+                height: 80%;
+                padding: 1rem;
+                background-color: $transparent-white;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+
+                @media #{$desktop} {
+                    min-width: 20rem;
+                    width: 38%;
+                }
+
+                h2 {
+                    text-align: center;
+                    margin-bottom: 1rem;
+                    font-size: 1.4rem;
+
+                    @media #{$desktop} {
+                        font-size: 1.7rem;
+                    }
+                }
+
+                p {
+                    text-align: center;
+                    font-size: .9rem;
+
+                    @media #{$desktop} {
+                        font-size: 1rem;
+                    }
+                }
+            }
+        }
+
+        &__etica {
+            width: 100vw;
+            display: flex;
+            flex-direction: column-reverse;
+
+            @media #{$desktop} {
+                flex-direction: row;
+            }
+
+            &__container {
+                width: 100%;
+                padding: 2rem;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+
+                @media #{$desktop}{
+                    width: 50%;
+                }
+
+                h2 {
+                    text-align: center;
+                    margin-bottom: 1rem;
+                }
+
+                p {
+                    text-align: center;
+
+                    a {
+                        color: $white;
+                    }
+                }
+            }
+
+            img {
+                width: 100%;
+
+                @media #{$desktop} {
+                    width: 50%;
+                }
+            }
+
+
+        }
+    }
+}
+
+footer {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    img {
+        width: 30%;
+
+        @media #{$desktop} {
+            width: 10%;
+            margin-top: 1rem;
+        }
+    }
+
+    .contacto {
+        width: 50%;
+        margin: 2rem;
+        display: flex;
+        justify-content: space-around;
+
+        @media #{$desktop}{
+            width: 60%;
+        }
+
+        a {
+            display: flex;
+            text-decoration: none;
+            color: $black;
+
+            i {
+                font-size: 1.5rem;
+            }
+
+            p {
+                display: none;
+
+                @media #{$desktop} {
+                    display: inline-block;
+                    margin: 0 .5rem;
+                }
+            }
+        }
+    }
+
+    p {
+        margin-bottom: 1rem;
+
+        a {
+            color: $gray-dark;
         }
     }
 }
