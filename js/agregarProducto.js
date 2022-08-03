@@ -11,27 +11,40 @@ export function agregarProducto(e) {
     if (e.target.classList.contains('agregar-producto')) {
         const productoSeleccionado = e.target.parentElement.parentElement.parentElement.parentElement
         const id = parseInt(productoSeleccionado.getAttribute('data-id'))
-        leerDatos(id)
+        const btn = e.target
+        leerDatos(id, btn)
     }
 }
 
-function leerDatos(idProducto) {
+function leerDatos(idProducto, btn) {
     const ring = rings.find(ring => ring.id === idProducto)
-    const {name, price, url, id} = ring
+    const {name, price, url, stock, id} = ring
     const infoProducto = {
         imagen: url,
         nombre: name,
         precio: price,
         id: id,
+        stock: stock,
         cantidad: 1
     }
+
+    infoProducto.stock--
 
     const existe = articulosCarrito.some(producto => producto.id === infoProducto.id)
 
     if(existe) {
         // Si existe solo le suma la cantidad
         articulosCarrito.map(producto => {
-            if(producto.id === infoProducto.id) producto.cantidad++
+            if(producto.id === infoProducto.id) {
+                if (producto.stock > 0) {
+                    producto.cantidad++
+                    producto.stock--
+                    console.log(producto.stock);
+                } else {
+                    btn.disabled = true
+                    btn.innerText = 'Sin Stock'
+                }
+            }
             return
         })
     } else {
@@ -94,6 +107,9 @@ export function eliminarProducto(e) {
     let productoID
     if(e.target.parentElement.matches('.borrar-producto')) {
         productoID = parseInt(e.target.parentElement.getAttribute('data-id'))
+        const producto = articulosCarrito.find(el => el.id === productoID)
+        const stockOriginal = rings.find(el => el.id === productoID)
+        producto.stock = stockOriginal.stock
         articulosCarrito = articulosCarrito.filter(producto => producto.id !== productoID)
         
         eliminarProductoLocalStorage(productoID)

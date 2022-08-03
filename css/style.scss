@@ -4,6 +4,7 @@
 $black: #000000;
 $gray: #eceff1;
 $gray-medium: #bdbdbd;
+$transparent-gray-medium: #bdbdbda1;
 $gray-dark: #757575;
 $white: #ffffff;
 $transparent-white: #ffffff9f;
@@ -784,4 +785,115 @@ footer {
             color: $gray-dark;
         }
     }
+}
+
+.modal {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    z-index: 1500;
+    background-color: $transparent-gray-medium;
+    display: flex;
+    opacity: 0;
+    pointer-events: none;
+
+    &__container {
+        width: 90%;
+        height: auto;
+        padding: 1em 1em;
+        background-color: $gray;
+        border-radius: 1.5em;
+        margin: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+
+        &__title {
+            margin-bottom: .5rem;
+            font-weight: 400;
+            font-size: 2em;
+            text-align: center;
+            color: $black;
+        }
+
+        &__close {
+            align-self: flex-end;   
+            font-size: 1.5em;
+            color: $gray-dark;
+            text-decoration: none;
+            font-weight: 500;
+        
+            border: none;
+            border-radius: 1em;
+        
+            transition: background-color .3s;
+    
+            &:hover {
+                cursor: pointer;
+            }
+        }
+
+        form {
+            width: 70%;
+            display: flex;
+            flex-direction: column;
+
+            label {
+                margin: .5rem 0;
+                font-size: 1.3rem;
+            }
+
+            input {
+                padding: .4rem 1rem;
+                border: none;
+                background-color: $gray-medium;
+                border-radius: .5rem;
+
+                &:focus {
+                    border: 2px solid $gray-dark;
+                }
+
+            }
+
+            button {
+                margin: 1.5rem 0;
+                padding: .4rem 1rem;
+                background-color: transparent;
+                border: 2px solid $gray-dark;
+                border-radius: .5rem;
+                transition: background-color .3s;
+
+                &:hover {
+                    background-color: $gray-medium;
+                    cursor: pointer;
+                }
+
+                &:disabled {
+                    border: 2px solid $gray-medium;
+                    color: $gray;
+                }
+            }
+        }
+    }
+
+    
+
+}
+.error {
+    border: 2px solid $error;
+}
+
+#error-message {
+    width: 100%;
+    color: $error;
+    margin-top: .5rem;
+    visibility: hidden;
+}
+
+.modal--show {
+    opacity: 1;
+    pointer-events: unset;
 }

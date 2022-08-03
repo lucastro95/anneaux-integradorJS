@@ -4,6 +4,7 @@ import { cargarProductos } from "./cargarProductos.js"
 import { rings } from "./db.js"
 import { filtrar } from "./filtrar.js"
 import { menuHamburguesa } from "./menu-hamburguesa.js"
+import { cerrarModal, iniciarSesion, mostrarModal, validarFormulario } from "./validacionFormulario.js"
 import * as v from "./variables.js"
 
 addEventListener('DOMContentLoaded', () => {
@@ -43,3 +44,15 @@ v.listaProductos.addEventListener('click', agregarProducto)
 v.eliminarTodos.addEventListener('click', eliminarTodos)
 
 v.carrito.addEventListener('click', (e) => eliminarProducto(e))
+
+v.iniciarSesion.addEventListener('click', mostrarModal)
+
+v.cerrarModal.addEventListener('click', cerrarModal)
+
+v.formInicio.addEventListener('submit', iniciarSesion)
+
+v.inputs.forEach(input => {
+    input.addEventListener("blur", validarFormulario);
+    input.addEventListener("keyup", validarFormulario);
+    input.addEventListener("change", validarFormulario);
+})

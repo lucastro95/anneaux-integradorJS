@@ -697,4 +697,99 @@ footer p a {
   color: #757575;
 }
 
+.modal {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  z-index: 1500;
+  background-color: rgba(189, 189, 189, 0.631372549);
+  display: flex;
+  opacity: 0;
+  pointer-events: none;
+}
+.modal__container {
+  width: 90%;
+  height: auto;
+  padding: 1em 1em;
+  background-color: #eceff1;
+  border-radius: 1.5em;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+.modal__container__title {
+  margin-bottom: 0.5rem;
+  font-weight: 400;
+  font-size: 2em;
+  text-align: center;
+  color: #000000;
+}
+.modal__container__close {
+  align-self: flex-end;
+  font-size: 1.5em;
+  color: #757575;
+  text-decoration: none;
+  font-weight: 500;
+  border: none;
+  border-radius: 1em;
+  transition: background-color 0.3s;
+}
+.modal__container__close:hover {
+  cursor: pointer;
+}
+.modal__container form {
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+}
+.modal__container form label {
+  margin: 0.5rem 0;
+  font-size: 1.3rem;
+}
+.modal__container form input {
+  padding: 0.4rem 1rem;
+  border: none;
+  background-color: #bdbdbd;
+  border-radius: 0.5rem;
+}
+.modal__container form input:focus {
+  border: 2px solid #757575;
+}
+.modal__container form button {
+  margin: 1.5rem 0;
+  padding: 0.4rem 1rem;
+  background-color: transparent;
+  border: 2px solid #757575;
+  border-radius: 0.5rem;
+  transition: background-color 0.3s;
+}
+.modal__container form button:hover {
+  background-color: #bdbdbd;
+  cursor: pointer;
+}
+.modal__container form button:disabled {
+  border: 2px solid #bdbdbd;
+  color: #eceff1;
+}
+
+.error {
+  border: 2px solid #963c3c;
+}
+
+#error-message {
+  width: 100%;
+  color: #963c3c;
+  margin-top: 0.5rem;
+  visibility: hidden;
+}
+
+.modal--show {
+  opacity: 1;
+  pointer-events: unset;
+}
+
 /*# sourceMappingURL=style.css.map */
