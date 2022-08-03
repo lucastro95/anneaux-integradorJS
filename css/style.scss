@@ -209,7 +209,7 @@ body {
 
     &__menu {
         width: 100%;
-        height: calc(100vh - 100px);
+        height: calc(100% - 100px);
         bottom: 0;
         transition: transform 0.3s ease;
         transform: translate(100%, 0%);
