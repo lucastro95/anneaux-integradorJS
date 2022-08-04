@@ -8,7 +8,7 @@ import { cerrarModal, iniciarSesion, mostrarModal, validarFormulario } from "./v
 import * as v from "./variables.js"
 
 addEventListener('DOMContentLoaded', () => {
-    menuHamburguesa()
+    menuHamburguesa('.navBar__btn', '.navBar__menu', '.navBar__menu a')
     cargarProductos(rings)
     leerLocalStorage()
 })
